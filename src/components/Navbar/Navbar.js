@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import hamburger from "../../assets/hamburger.svg";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+
   return (
     <nav>
-      <div>
+      <div className="nav-logo">
         <div>SWIFT BANKING</div>
       </div>
       <div
@@ -17,10 +19,18 @@ const Navbar = () => {
         }
       >
         <ul className="nav-links">
-          <li>Home</li>
-          <li>View customers</li>
-          <li>Transfer money</li>
-          <li>Transaction history</li>
+          <Link to="/">
+            <li className="nav-items">Home</li>
+          </Link>
+          <Link to="/customers">
+            <li className="nav-items">View customers</li>
+          </Link>
+          <Link to="/payment">
+            <li className="nav-items">Transfer money</li>
+          </Link>
+          <Link to="/transactions">
+            <li className="nav-items">Transaction history</li>
+          </Link>
         </ul>
       </div>
       <div className="hamburger-icon">
