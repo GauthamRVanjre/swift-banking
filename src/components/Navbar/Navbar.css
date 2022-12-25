@@ -5,6 +5,10 @@ nav {
   padding: 20px 90px;
 }
 
+.nav-links-container {
+  margin-top: 18px;
+}
+
 .nav-links {
   display: flex;
   flex-direction: row;
@@ -27,7 +31,7 @@ nav {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .nav-links li:hover {
   opacity: 1;

@@ -1,0 +1,58 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+  width: 30%;
+  color: white;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 30px;
+  background: hsl(0, 0%, 98%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  letter-spacing: 2px;
+}
+
+.payment-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  margin: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+  border: 1px solid #000;
+}
+
+.text:focus {
+  border-color: rgba(27, 27, 50, 0.3);
+}
+
+/* styling of submit button */
+
+#submit {
+  height: 40px;
+  color: #fff;
+  background-color: rgb(40, 167, 23);
+}
+
+#submit:hover {
+  cursor: pointer;
+  background-color: rgba(40, 167, 23, 0.8);
+}
+
+.payment-heading {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    width: 80%;
+  }
+}

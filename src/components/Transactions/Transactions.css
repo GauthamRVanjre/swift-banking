@@ -1,0 +1,14 @@
+.Transactions-heading {
+  text-align: center;
+}
+
+.table {
+  width: 80% !important;
+  margin-top: 70px;
+  margin-left: 80px;
+}
+
+.table-heading {
+  background-color: #000;
+  color: #fff;
+}
