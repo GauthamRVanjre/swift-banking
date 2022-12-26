@@ -11,8 +11,8 @@ const Home = () => {
           <h1>Welcome to swift banking</h1>
           <p>A banking system for swift and safe payments</p>
           <div className="buttons-container">
-            <Link to="/Transactions">
-              <button className="transaction-btn">View Transactions</button>
+            <Link to="/Register">
+              <button className="transaction-btn">Register user</button>
             </Link>
             <Link to="/Payment">
               <button className="payment-btn">Make Payments</button>

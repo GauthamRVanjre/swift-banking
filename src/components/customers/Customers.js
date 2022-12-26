@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Customers.css";
+import { db } from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const Customers = () => {
+  const [customers, setCustomers] = useState([]);
+
+  const customersCollectionRef = collection(db, "customers");
+
+  useEffect(() => {
+    const getCustomers = async () => {
+      const data = await getDocs(customersCollectionRef);
+      console.log(data.docs);
+
+      setCustomers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getCustomers();
+  });
+
   return (
     <>
       <h2 className="customers-heading">Customers</h2>
@@ -9,34 +25,21 @@ const Customers = () => {
       <table className="table table-striped">
         <thead className="table-heading">
           <tr>
-            <th scope="col">Transaction ID</th>
-            <th scope="col">Sender Name</th>
-            <th scope="col">Receiver name</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Status</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Account number</th>
+            <th scope="col">Balance</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-          </tr>
+          {customers.map((customer) => {
+            return (
+              <tr key={customer.id}>
+                <td>{customer.Name}</td>
+                <td>{customer.AccountNumber}</td>
+                <td>{customer.Balance}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </>

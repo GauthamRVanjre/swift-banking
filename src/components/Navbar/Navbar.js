@@ -31,6 +31,9 @@ const Navbar = () => {
           <Link to="/transactions">
             <li className="nav-items">Transaction history</li>
           </Link>
+          <Link to="/register">
+            <li className="nav-items">Register</li>
+          </Link>
         </ul>
       </div>
       <div className="hamburger-icon">
