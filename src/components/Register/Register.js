@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { db } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import "./Register.css";
+import Modal from "../Modal";
 
 const Register = () => {
   //   const customersCollectionRef = collection(db, "customers");
@@ -10,7 +11,7 @@ const Register = () => {
   const [accountNumber, setAccountNumber] = useState();
   const [name, setName] = useState("");
   const [accountBalance, setAccountBalance] = useState();
-  const [alertMessage, setAlertMessage] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const createCustomer = async (event) => {
     event.preventDefault();
@@ -21,13 +22,10 @@ const Register = () => {
       CustomerId: customerId,
       Name: name,
     });
-    setAlertMessage(true);
-    setTimeout(() => {
-      setAlertMessage(false);
-    }, 3000);
     setName("");
     setAccountNumber(0);
     setAccountBalance(0);
+    setIsOpen(true);
 
     console.log("data added");
   };
@@ -77,16 +75,9 @@ const Register = () => {
             value="Register"
           />
         </form>
-      </div>
-      <div
-        className={
-          alertMessage
-            ? `alert alert-info alert-props`
-            : `alert alert-info alert-props alert-none`
-        }
-        role="alert"
-      >
-        Customer is registered successfully.
+        <Modal onClose={() => setIsOpen(false)} open={isOpen}>
+          User Registered
+        </Modal>
       </div>
     </>
   );

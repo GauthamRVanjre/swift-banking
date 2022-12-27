@@ -1,0 +1,17 @@
+.payment-icon {
+  margin-top: -50px;
+  margin-left: 15px;
+  height: 100px;
+  width: 100px;
+  background-size: contain;
+}
+
+.close-btn {
+  margin-top: 20px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  color: #fff;
+  background-color: hsl(136, 89%, 36%);
+  border: 1px solid #fff;
+}
