@@ -16,7 +16,7 @@ const Customers = () => {
       setCustomers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getCustomers();
-  });
+  }, []);
 
   return (
     <>
